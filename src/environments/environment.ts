@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   url_grapshql_github: 'https://api.github.com/graphql',
-  github_token: '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'
+  github_token: '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'
 };
 
 /*
