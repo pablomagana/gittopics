@@ -1,0 +1,23 @@
+<div class="container d-flex flex-column align-items-center pt-5">
+
+    <div *ngIf="isFindError" class="alert alert-danger position-absolute top-2 start-0" role="alert">
+        Algo ha fallado al buscar. Intentalo otra vez.
+      </div>
+    
+    <div class="container__finder__box w-50 mb-5">
+        <input (keyup.enter)="findRepositories()" [(ngModel)]="topic" type="text" class="form-control " id="topic-finder" aria-describedby="finder">
+        <span (click)="findRepositories()"><i class="bi bi-search"></i></span>
+    </div>
+    
+    <div class="container__results" *ngIf="hasRepositories">
+        <div class="repository-card" *ngFor="let repository of repositories">
+                <div class="repository-card__top">
+                    <span class="title">{{repository.name}}</span>
+                    <span><i class="bi bi-star-fill"></i> {{repository.stargazerCount}}</span>
+                </div>
+                <span class="repository-card__bottom">{{repository.description}}</span>
+        </div>
+    </div>
+</div>
+
+<app-loaderdata *ngIf="loadingData"></app-loaderdata>
